@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::include_graphics("dim.jpg")
 ```
 <center>
-<figcaption> *The Curse of Dimensionality* by Saul Steinburg (1986)</figcaption>
+<figcaption> *The Curse of Dimensionality* by Saul Steinburg (1968)</figcaption>
 </center> 
 
 <p>   </p>
