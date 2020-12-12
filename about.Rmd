@@ -1,5 +1,5 @@
 ---
-title: "About Me"
+title: "About"
 ---
 
 ```{r setup, include=FALSE}
