@@ -2,18 +2,17 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "About this blog",
-      "description": "Some additional details about the blog",
+      "title": "About",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2020-12-08T00:36:34+03:00"
+      "contents": "\nShort notes and quick applications from T.E.G. There will be a lack of organization inevitably. Although I am a novice, I answered some questions here:\n\n \n\n\n\n\n\n",
+      "last_modified": "2020-12-12T19:10:01+03:00"
     },
     {
       "path": "index.html",
-      "title": "My Blog",
+      "title": "Posts",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2020-12-08T00:36:35+03:00"
+      "last_modified": "2020-12-12T19:10:01+03:00"
     }
   ],
   "collections": ["posts/posts.json"]

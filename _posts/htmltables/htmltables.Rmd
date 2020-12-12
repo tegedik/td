@@ -1,0 +1,74 @@
+---
+title: "R'da HTML Regresyon Tablolari Olusturmak"
+author:
+  - name: Tahir Enes Gedik
+    url: {}
+date: 12-12-2020
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, echo=TRUE, eval=TRUE, include=FALSE, message=FALSE, warning=FALSE}
+library(strengejacke)
+library(texreg)
+```
+
+
+[*Blogu yeni [distill](https://rstudio.github.io/distill/)'e tasidim. Biraz deneme amacli bir paylasim.*]
+
+Modelleri rapor ederken tablo olusturmak kulfetli bir is ve elle hazirlanirsa hata yapma ihtimali yuksek. Ayrica surekli olarak duzeltme yapilan ve modellerin tekrar tekrar hesaplandigi analizlerde her seferinde bastan tablo olusturmak ciddi bir zaman kaybi. Bunun icin baska yazilimlarda oldugu gibi `R`'da da isimizi kolaylastiracak paketler mevcut. Bunlardan ikisi uzerinde duracagim: `sjPlot` (`strengejacke`'nin parcasi) ve `texreg`. 
+
+```{r tab_libs, echo=TRUE, eval=FALSE, include=TRUE, message=FALSE, warning=FALSE}
+library(strengejacke)
+library(texreg)
+```
+
+
+
+
+### sjPlot
+
+Bu paketlerdeki her tablo fonksiyonunun her modeli desteklemiyor. Dolayisiyla dokumantasyona gidip modelinizin desteklenip desteklenmedigini kontrol etmeniz gerekiyor. Orneklerde kullanacagim iki model fonksiyonu (`lm` ve `glm`) ise hemen her paket tarafindan destekleniyor. Orneklerde de bu ikisi uzerinden ilerleyecegim. Ornekler sadece tablolarin olusturulmasini gosteriyor, yani analizlerin anlamli olmasini saglamaya calismadim.
+
+
+
+```{r, echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+df <- carData::Mroz
+
+lmfit <- lm(inc ~ k5 + k618 + age + wc + hc, df)
+glmfit <- glm(lfp ~ k5 + k618 + age + wc + hc, df, family = binomial(link="logit"))
+
+tab_model(lmfit, glmfit)
+```
+
+
+Burada gordugunuz gibi `estimates/odds ratio`, `CI` ve `p` ayri sutunlarda ancak degisiklik yapmak mumkun. Ayrica `tab_model()` fonksiyonunun `lm` ve `glm` modelleri icin sutunlari farkli isimlendirdigini gorebilirsiniz. Biraz degisiklik yapalim:
+
+```{r, echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+# Mesela degiskenlerimize `label` verelim, `tab_model` tabloyu buna gore duzenliyor
+df_lab <- df %>% 
+  var_labels(lfp = "labor-force participation",
+             inc = "family income (exc. wife's)",
+             k5 = "number of kids < 5",
+             k618 = "number of kids 6 to 18", 
+             age = "age",
+             wc = "wife's college att.", 
+             hc = "husband's college att")
+
+
+lmfit <- lm(inc ~ k5 + k618 + age + wc + hc, df_lab)
+glmfit <- glm(lfp ~ k5 + k618 + age + wc + hc, df_lab, family = binomial(link="logit"))
+
+
+tab_model(lmfit, glmfit, 
+          show.ci = FALSE,
+          show.se = TRUE,
+          collapse.se = TRUE,
+          p.style = "stars",
+          title = "Model Results")
+```
+
+Elinize alacaginiz cogu sosyal bilim makalesinde muhtemelen bu ikinci tabloya benzer tablolarla karsilasacaksiniz: estimate/odds ratio, altinda parantez icinde standard error ve tabiki yildizlar. 
+
+

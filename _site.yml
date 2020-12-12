@@ -1,7 +1,7 @@
-name: "distill"
-title: "My Blog"
+name: "td"
+title: "Technical Difficulties"
 description: |
-  My Blog
+  "Quantitative Methods and Statistical Analysis in the Social Sciences"
 output_dir: "docs"
 navbar:
   right:
