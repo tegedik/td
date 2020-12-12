@@ -6,7 +6,25 @@ title: "About"
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+```{r, out.width = "600px", fig.align="center"}
+knitr::include_graphics("dim.jpg")
+```
+<center>
+<figcaption> *The Curse of Dimensionality* by Saul Steinburg (1986)</figcaption>
+</center> 
+
+<p>   </p>
+<p>   </p>
+
+
+
+
+
+
+
 Short notes and quick applications from T.E.G. There will be a lack of organization inevitably. Although I am a novice, I answered some questions here:
+
+
 
 <div>
 <a align="left" href="https://stats.stackexchange.com/users/109647/t-e-g">

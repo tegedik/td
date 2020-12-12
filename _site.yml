@@ -3,6 +3,7 @@ title: "Technical Difficulties"
 description: |
   "Quantitative Methods and Statistical Analysis in the Social Sciences"
 output_dir: "docs"
+theme: theme.css
 navbar:
   right:
     - text: "Home"
