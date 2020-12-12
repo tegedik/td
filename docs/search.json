@@ -5,14 +5,14 @@
       "title": "About",
       "author": [],
       "contents": "\nShort notes and quick applications from T.E.G. There will be a lack of organization inevitably. Although I am a novice, I answered some questions here:\n\n \n\n\n\n\n\n",
-      "last_modified": "2020-12-12T20:27:40+03:00"
+      "last_modified": "2020-12-12T20:36:37+03:00"
     },
     {
       "path": "index.html",
       "title": "Posts",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2020-12-12T20:27:40+03:00"
+      "last_modified": "2020-12-12T20:36:38+03:00"
     }
   ],
   "collections": ["posts/posts.json"]
