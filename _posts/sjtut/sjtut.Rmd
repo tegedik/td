@@ -1,0 +1,42 @@
+---
+title: "{strengejacke} Paketleriyle Analiz"
+author:
+  - name: Tahir Enes Gedik
+    url: {}
+date: 12-26-2020
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+bibliography: references.bib
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r lib_exp, echo=FALSE, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(strengejacke)
+```
+
+Once analiz icin gerekli olan paketleri cagiralim. 
+
+```{r dummy_load, echo=TRUE, eval=FALSE, }
+library(tidyverse)
+library(strengejacke)
+```
+
+Her iki komut da tidyverse [@wickham2019] ve strengejacke [@ludecke2019] icinde olan paketleri yukleyecek (eger paketler yuklu degilse `install.packages()` komutunu kullanarak yukleyebilirsiniz). Bundan sonraki adimlarda sadece bu paketler icinde olan (ya da hali hazirda `base` icinde olan) fonksiyonlari kullanarak devam edecegiz. Ancak veriye ihtiyacimiz var. Bunun icin European Social Survey (ESS) verilerini kullanabiliriz. ESS verilerin `essurvey` paketini kullanarak indirebilirsiniz. Ancak boyle yaparsaniz etiket bilgisi kayboluyor. Yani hem degiskenlerin etiketleri (*variable labels*) hem de degerlerin etiketlerini (*value labels*) goremiyorsunuz. Bu yuzden herhangi bir formatta veriyi indirip `R`'da acmayi tercih ediyorum. Isleri kolaylastirmak icin veriyi tiklayarak indirebilirsiniz. Sonrasinda:
+
+
+```{r ess, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE, results="hide"}
+
+
+```
+
+
+
+
+Here is the reference [@wickham2019]
