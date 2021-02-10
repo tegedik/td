@@ -28,8 +28,6 @@ Thus, such a simplifying heuristic (e.g., specifiying a regression function) wou
 
 [^1]: In his *Regression Modeling Strategies* [-@Harrell2015, 359], Harrell argues that semiparametric models (e.g., proportional odds logistic regression) have many advantages such as "robustness and freedom from all distributional assumptions for Y conditional on any given set of predictors." I would prefer such an approach if needed. 
 
-## References
-
 <!--I am not working with experimental data but if I were, I would probably be worried the fact that parametric and nonparametric tests usually have different nulls.-->
 
 
