@@ -105,7 +105,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <!--/radix_placeholder_meta_tags-->
   
-  <meta name="citation_reference" content="citation_title=Regression Modeling Strategies;citation_publication_date=2015;citation_publisher=Springer International Publishing;citation_author=Frank E. Harrell"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
@@ -114,7 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["nonp_files/anchor-4.2.2/anchor.min.js","nonp_files/bowser-1.9.3/bowser.min.js","nonp_files/distill-2.2.21/template.v2.js","nonp_files/header-attrs-2.5/header-attrs.js","nonp_files/jquery-1.11.3/jquery.min.js","nonp_files/webcomponents-2.0.0/webcomponents.js","references.bib"]}
+  {"type":"character","attributes":{},"value":["nonp_files/anchor-4.2.2/anchor.min.js","nonp_files/bowser-1.9.3/bowser.min.js","nonp_files/distill-2.2.21/template.v2.js","nonp_files/header-attrs-2.5/header-attrs.js","nonp_files/header-attrs-2.6/header-attrs.js","nonp_files/jquery-1.11.3/jquery.min.js","nonp_files/popper-2.6.0/popper.min.js","nonp_files/tippy-6.2.7/tippy-bundle.umd.min.js","nonp_files/tippy-6.2.7/tippy-light-border.css","nonp_files/tippy-6.2.7/tippy.css","nonp_files/tippy-6.2.7/tippy.umd.min.js","nonp_files/webcomponents-2.0.0/webcomponents.js","references.bib"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -306,6 +305,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     text-decoration: underline;
   }
 
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
   @media(min-width: 768px) {
 
   d-article pre,
@@ -460,6 +464,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   div.hanging-indent{
     margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
   }
 
 
@@ -1127,7 +1142,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       var layout = $(this).attr('data-layout');
 
       // apply layout to markdown level block elements
-      var elements = $(this).children().not('div.sourceCode, pre, script');
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
       elements.each(function(i, el) {
         var layout_div = $('<div class="' + layout + '"></div>');
         if (layout_div.hasClass('shaded')) {
@@ -1242,6 +1257,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       // move appendix-bottom entries to the bottom
       $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
       $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
 
       // clear polling timer
       clearInterval(tid);
@@ -1402,8 +1431,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="nonp_files/header-attrs-2.5/header-attrs.js"></script>
+  <script src="nonp_files/header-attrs-2.6/header-attrs.js"></script>
   <script src="nonp_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="nonp_files/popper-2.6.0/popper.min.js"></script>
+  <link href="nonp_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="nonp_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="nonp_files/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="nonp_files/anchor-4.2.2/anchor.min.js"></script>
   <script src="nonp_files/bowser-1.9.3/bowser.min.js"></script>
   <script src="nonp_files/webcomponents-2.0.0/webcomponents.js"></script>
@@ -1442,7 +1475,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<p>If you are following online communities where people ask for statistics advice, you’ve probably seen a type of question popping up from time to time: “I am doing an analysis using parametric test X, however, (assumption check) test A reveals that assumption B is violated. What should I do?” (As you may guess, the violated assumption is usually the normality assumption). And people start recommending a number of textbook solutions. One such solution is to stop using the paramatric test and to prefer a nonparametic equivalent. For example, if you use <span class="math inline">\(t\)</span> test and violate the “normality” assumption, some would say that you should use Mann-Whitney U test. And that’s it.</p>
+<p>If you are following online communities where people ask for statistics advice, you’ve probably seen a type of question popping up from time to time: “I am doing an analysis using parametric test X, however, (assumption check) test A reveals that assumption B is violated. What should I do?” (As you may guess, the violated assumption is usually the normality assumption). And people start recommending a number of textbook solutions. One such solution is to stop using the parametric test and to prefer a nonparametric equivalent. For example, if you use <span class="math inline">\(t\)</span> test and violate the “normality” assumption, some would say that you should use Mann-Whitney U test. And that’s it.</p>
 <p>I think these questions are problematic for two reasons. First, they are asking for recipe-like solutions, which could be justified by a few references to the extant literature, without thinking about the specific issues related to the analysis at hand. Second, they encourage binary thinking: “If X is violated, do Y, if not do Z.” It would be better to think about the possible consequences of such violations and act accordingly. Otherwise you might be choosing between two faulty approaches.</p>
 <p>I am not against using nonparametric tests <em>per se</em> (they might even have desirable properties), but the way decisions are made regarding these tests. <!--Below you can see a personal list of why the use nonparametric tests is not warranted: Below I listed some reasons why I am wary of using nonparametric tests.--> In my case, the foremost reason why I hesitate using nonparametric tests is that they do not generalize well to complex models. It is not an issue to use a nonparametric test comparing two groups. But what happens if you want to estimate cross-level interactions and random effects? As <a href="https://stats.stackexchange.com/a/163948">this answer</a> in Cross Validated indicates, we can think parametric assumptions as simplifying heuristics:</p>
 <blockquote>
@@ -1452,15 +1485,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h2 id="references">References</h2>
 <!--I am not working with experimental data but if I were, I would probably be worried the fact that parametric and nonparametric tests usually have different nulls.-->
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<div id="refs" class="references hanging-indent" role="doc-bibliography">
-<div id="ref-Harrell2015">
-<p>Harrell, Frank E. 2015. <em>Regression Modeling Strategies</em>. Springer International Publishing.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Harrell2015" class="csl-entry" role="doc-biblioentry">
+Harrell, Frank E. 2015. <em><span>Regression Modeling Strategies</span></em>. Springer International Publishing.
 </div>
 </div>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>In his <em>Regression Modeling Strategies</em> <span class="citation" data-cites="Harrell2015">(<a href="#ref-Harrell2015" role="doc-biblioref">2015</a>, 359)</span>, Harrell argues that semiparametric models (e.g., proportional odds logistic regression) have many advantages such as “robustness and freedom from all distributional assumptions for Y conditional on any given set of predictors.” I would prefer such an approach if needed.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>In his <em>Regression Modeling Strategies</em> <span class="citation" data-cites="">(<a href="#ref-Harrell2015" role="doc-biblioref">2015, 359</a>)</span>, Harrell argues that semiparametric models (e.g., proportional odds logistic regression) have many advantages such as “robustness and freedom from all distributional assumptions for Y conditional on any given set of predictors.” I would prefer such an approach if needed.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 <!--radix_placeholder_article_footer-->

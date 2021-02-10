@@ -105,7 +105,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <!--/radix_placeholder_meta_tags-->
   
-  <meta name="citation_reference" content="citation_title=&lt;span class=&quot;nocase&quot;&gt;Regression Models for Categorical Dependent Variables Using Stata&lt;/span&gt;;citation_publication_date=2014;citation_publisher=Stata Press;citation_author=Scott J. Long;citation_author=Jeremy Freese"/>
+  <meta name="citation_reference" content="citation_title=Regression Models for Categorical Dependent Variables Using Stata;citation_publication_date=2014;citation_publisher=Stata Press;citation_author=Scott J. Long;citation_author=Jeremy Freese"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
@@ -306,6 +306,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     text-decoration: underline;
   }
 
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
   @media(min-width: 768px) {
 
   d-article pre,
@@ -460,6 +465,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   div.hanging-indent{
     margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
   }
 
 
@@ -1127,7 +1143,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       var layout = $(this).attr('data-layout');
 
       // apply layout to markdown level block elements
-      var elements = $(this).children().not('div.sourceCode, pre, script');
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
       elements.each(function(i, el) {
         var layout_div = $('<div class="' + layout + '"></div>');
         if (layout_div.hasClass('shaded')) {
@@ -1242,6 +1258,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       // move appendix-bottom entries to the bottom
       $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
       $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
 
       // clear polling timer
       clearInterval(tid);
@@ -1402,8 +1432,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="climbing_files/header-attrs-2.5/header-attrs.js"></script>
+  <script src="climbing_files/header-attrs-2.6/header-attrs.js"></script>
   <script src="climbing_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="climbing_files/popper-2.6.0/popper.min.js"></script>
+  <link href="climbing_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="climbing_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="climbing_files/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="climbing_files/anchor-4.2.2/anchor.min.js"></script>
   <script src="climbing_files/bowser-1.9.3/bowser.min.js"></script>
   <script src="climbing_files/webcomponents-2.0.0/webcomponents.js"></script>
@@ -1442,15 +1476,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<p>I think one of the most intuitive descriptions of the maximum likelihood estimation (especially for the beginners) can be found in <span class="citation" data-cites="Long2014">Long and Freese (<a href="#ref-Long2014" role="doc-biblioref">2014</a>)</span>:</p>
+<p>I think one of the most intuitive descriptions of the maximum likelihood estimation (especially for the beginners) can be found in <span class="citation" data-cites="Long2014"><a href="#ref-Long2014" role="doc-biblioref">Long and Freese</a> (<a href="#ref-Long2014" role="doc-biblioref">2014</a>)</span>:</p>
 <blockquote>
-<p>For all but the simplest models, the only way to find the maximum likelihood function is by numerical methods.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Numerical methods are the mathematical equivalent of how you would find the top of a hill if you were blindfolded and knew only the slope of the hill at the spot where you are standing and how the slope at that spot is changing which you could figure out by poking your foot in each direction. The search begins with start values corresponding to your location as you start your climb. From the start position, the slope of the likelihood function and the rate of change in the slope determine the next guess for the parameters. The process continues to iterate until the maximum of the likelihood function is found, called, convergence, and the resulting estimates are reported <span class="citation" data-cites="Long2014">(Long and Freese <a href="#ref-Long2014" role="doc-biblioref">2014</a>, 84)</span></p>
+<p>For all but the simplest models, the only way to find the maximum likelihood function is by numerical methods.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Numerical methods are the mathematical equivalent of how you would find the top of a hill if you were blindfolded and knew only the slope of the hill at the spot where you are standing and how the slope at that spot is changing which you could figure out by poking your foot in each direction. The search begins with start values corresponding to your location as you start your climb. From the start position, the slope of the likelihood function and the rate of change in the slope determine the next guess for the parameters. The process continues to iterate until the maximum of the likelihood function is found, called, convergence, and the resulting estimates are reported <span class="citation" data-cites="Long2014">(<a href="#ref-Long2014" role="doc-biblioref">Long and Freese 2014, 84</a>)</span></p>
 </blockquote>
 <h3 id="example-logistic-regression">Example: Logistic Regression</h3>
 <p>Data preparation</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>optimx</span><span class='op'>)</span> <span class='co'># or optim depending on the optimization method used, </span>
                 <span class='co'># BFGS is available in both packages</span>
 <span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'>carData</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/carData/man/Mroz.html'>Mroz</a></span>
@@ -1471,7 +1505,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>“The search begins with <em>start values</em> corresponding to your location as you start your climb.”</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='co'># Use OLS model coefficients as starting values</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Use OLS model coefficients as starting values</span>
 <span class='va'>lmfit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>outcome</span> <span class='op'>~</span> <span class='va'>predictors</span><span class='op'>[</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
 <span class='va'>s_val</span> <span class='op'>&lt;-</span> <span class='va'>lmfit</span><span class='op'>$</span><span class='va'>coefficients</span>
 </code></pre>
@@ -1480,7 +1514,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>“From the start position, the slope of the <em>likelihood function</em> and the rate of change in the slope determine the next guess for the parameters.”</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>logLikelihood</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>vBeta</span>, <span class='va'>mX</span>, <span class='va'>vY</span><span class='op'>)</span> <span class='op'>{</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>logLikelihood</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>vBeta</span>, <span class='va'>mX</span>, <span class='va'>vY</span><span class='op'>)</span> <span class='op'>{</span>
   <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>vY</span><span class='op'>*</span><span class='op'>(</span><span class='va'>mX</span> <span class='op'>%*%</span> <span class='va'>vBeta</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>+</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='va'>mX</span> <span class='op'>%*%</span> <span class='va'>vBeta</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
     <span class='op'>+</span> <span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='va'>vY</span><span class='op'>)</span><span class='op'>*</span><span class='op'>(</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='va'>mX</span> <span class='op'>%*%</span> <span class='va'>vBeta</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>  
 <span class='op'>}</span>
@@ -1490,7 +1524,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>“The process continues to <em>iterate</em> until the maximum of the likelihood function is found, called, <em>convergence</em>,…”</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>optimization</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/optimx/man/optimx.html'>optimx</a></span><span class='op'>(</span><span class='va'>s_val</span>, <span class='va'>logLikelihood</span>, method <span class='op'>=</span> <span class='st'>'BFGS'</span>, 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>optimization</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/optimx/man/optimx.html'>optimx</a></span><span class='op'>(</span><span class='va'>s_val</span>, <span class='va'>logLikelihood</span>, method <span class='op'>=</span> <span class='st'>'BFGS'</span>, 
                        mX <span class='op'>=</span> <span class='va'>predictors</span>, vY <span class='op'>=</span> <span class='va'>outcome</span>, hessian<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -1498,7 +1532,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>“…and the resulting estimates are reported.”</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>estimation_optx</span> <span class='op'>&lt;-</span> <span class='va'>optimization</span> <span class='op'>%&gt;%</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>estimation_optx</span> <span class='op'>&lt;-</span> <span class='va'>optimization</span> <span class='op'>%&gt;%</span>
   <span class='fu'>select</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span><span class='op'>(</span><span class='va'>predictors</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='va'>estimation_optx</span>
 </code></pre>
@@ -1512,7 +1546,7 @@ predictors...c.2.4..inc -0.01875491</code></pre>
 <p>Compare them with the result of <code>glm</code> function:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span><span class='va'>lfp</span> <span class='op'>~</span> <span class='va'>k5</span> <span class='op'>+</span> <span class='va'>age</span> <span class='op'>+</span> <span class='va'>inc</span>, <span class='va'>df</span>, family <span class='op'>=</span> <span class='va'>binomial</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span><span class='va'>lfp</span> <span class='op'>~</span> <span class='va'>k5</span> <span class='op'>+</span> <span class='va'>age</span> <span class='op'>+</span> <span class='va'>inc</span>, <span class='va'>df</span>, family <span class='op'>=</span> <span class='va'>binomial</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>
@@ -1542,9 +1576,9 @@ Number of Fisher Scoring iterations: 4</code></pre>
 </div>
 <p>Here is the <a href="https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm">wiki</a> page for the <code>BFGS</code> (Broyden–Fletcher–Goldfarb–Shanno algorithm) method, which “belongs to quasi-Newton methods, a class of <em>hill-climbing</em> optimization techniques….”</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<div id="refs" class="references hanging-indent" role="doc-bibliography">
-<div id="ref-Long2014">
-<p>Long, Scott J., and Jeremy Freese. 2014. <em>Regression Models for Categorical Dependent Variables Using Stata</em>. Texas: Stata Press.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Long2014" class="csl-entry" role="doc-biblioentry">
+Long, Scott J., and Jeremy Freese. 2014. <em><span class="nocase">Regression Models for Categorical Dependent Variables Using Stata</span></em>. Texas: Stata Press.
 </div>
 </div>
 <section class="footnotes" role="doc-endnotes">

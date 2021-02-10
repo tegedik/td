@@ -2349,11 +2349,15 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.5/header-attrs.js"></script>
-  <script src="../../site_libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+  <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
+  <script src="../../site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
   <script src="../../site_libs/twitter-widgets-1.0.0/widgets.js"></script>
   <script src="../../site_libs/twitterwidget-binding-0.1.1/twitterwidget.js"></script>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
@@ -2417,7 +2421,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <p>I really like this kind of small devices, but I am not willing to pay $39.95 (on Amazon). And, although the pleasure of watching the beans is missing, I can see the approximation at work using <code>R</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://github.com/hrbrmstr/hrbrthemes'>hrbrthemes</a></span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>12</span><span class='op'>)</span>
 <span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span><span class='op'>(</span><span class='fl'>3000</span>, <span class='fl'>12</span>, <span class='fl'>0.5</span><span class='op'>)</span>
@@ -2461,18 +2465,18 @@ d-appendix d-footnote-list a.footnote-backlink {
 <script type="application/json" data-for="htmlwidget-6f4d335368d27e98b640">{"x":{"twid":"1296417067814522881","pars":null},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<div id="refs" class="references hanging-indent" role="doc-bibliography">
-<div id="ref-Galton1889">
-<p>Galton, Francis. 1889. <em>Natural Inheritance</em>. MacMillan.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Galton1889" class="csl-entry" role="doc-biblioentry">
+Galton, Francis. 1889. <em><span>Natural Inheritance</span></em>. MacMillan.
 </div>
-<div id="ref-Pedersen2017">
-<p>Pedersen, Thomas Lin. 2017. <em>Patchwork: The Composer of Ggplots</em>. <a href="https://github.com/thomasp85/patchwork">https://github.com/thomasp85/patchwork</a>.</p>
+<div id="ref-Pedersen2017" class="csl-entry" role="doc-biblioentry">
+Pedersen, Thomas Lin. 2017. <em>Patchwork: The Composer of Ggplots</em>. <a href="https://github.com/thomasp85/patchwork">https://github.com/thomasp85/patchwork</a>.
 </div>
-<div id="ref-Rudis2019">
-<p>Rudis, Bob. 2019. <em>Hrbrthemes: Additional Themes, Theme Components and Utilities for ’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=hrbrthemes">https://CRAN.R-project.org/package=hrbrthemes</a>.</p>
+<div id="ref-Rudis2019" class="csl-entry" role="doc-biblioentry">
+Rudis, Bob. 2019. <em>Hrbrthemes: Additional Themes, Theme Components and Utilities for ’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=hrbrthemes">https://CRAN.R-project.org/package=hrbrthemes</a>.
 </div>
-<div id="ref-Wickham2017">
-<p>Wickham, Hadley. 2017. <em>Tidyverse: Easily Install and Load the ’Tidyverse’</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.</p>
+<div id="ref-Wickham2017" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2017. <em>Tidyverse: Easily Install and Load the ’Tidyverse’</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
 </div>
 </div>
 <section class="footnotes" role="doc-endnotes">

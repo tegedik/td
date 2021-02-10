@@ -106,7 +106,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <!--/radix_placeholder_meta_tags-->
   
-  <meta name="citation_reference" content="citation_title=&lt;span class=&quot;nocase&quot;&gt;The practice of quantitative methods&lt;/span&gt;;citation_publication_date=2010;citation_publisher=Sage;citation_author=Kelvyn Jones"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
@@ -2349,8 +2348,12 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.5/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
@@ -2418,15 +2421,15 @@ d-appendix d-footnote-list a.footnote-backlink {
 </blockquote>
 <p>Yaptığımız en sıradan analizleri bile bir tür modelleme olarak düşünebiliriz. Mesela bir değişkenin ortalamasını almak yani değişken içindeki farklı değerleri tek bir sayıyla özetlemek (yani bir anlamda <em>indirgemek</em>) basit bir model kullanmaktır. Ancak McElreath’ın tabiriyle “küçük dünyalar” olarak modeller dışarıdaki büyük dünyanın eksik bir temsilidir; onun karmaşıklığını tam olarak yakalayamazlar.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Ancak bize “ne kadar geç kaldığımızı” söyleyebilirler.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Dolayısıyla bir modelin inşasına (<em>ne, nasıl, hangi amaçla test ediliyor?</em>), varsayımlarına ve performansına bakmak bize yüzeysel bir yorumun ötesine geçme imkanı verecektir. Bu konu üzerinde durmanın kendi araştırma pratiğimi daha fazla irdelememe de yardımcı olacağını düşünüyorum.</p>
 <p>Konuların hepsi oldukça geniş ve başta da belirttiğim gibi bir uzmanlık iddiam yok. Buna rağmen en azından bir tartışma imkânı doğurması için bu konular üzerine yazmak istiyorum. Ayrıca yazıların bir kişisel web sitesinde yayınlandığını hatırlatmalıyım. Belli bir akademik standardı tutturmak istesem de kendimi çok da zorlamayacağım. Bu sınırlılıklara rağmen umarım okuyana keyif verir. Zor olduğu ve bence kötü gözüktüğü için siteye bir forum eklentisi kurmadım. Ancak bana sosyal medya ya da e-posta yoluyla ulaşabilirsiniz.</p>
-<div id="refs" class="references hanging-indent" role="doc-bibliography">
-<div id="ref-Jones2010">
-<p>Jones, Kelvyn. 2010. “The practice of quantitative methods.” In <em>Theory and Methods in Social Research</em>, edited by Bridget Somekh and Cathy Lewin, 201–11. Sage.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Jones2010" class="csl-entry" role="doc-biblioentry">
+Jones, Kelvyn. 2010. <span>“<span class="nocase">The practice of quantitative methods</span>.”</span> In <em>Theory and Methods in Social Research</em>, edited by Bridget Somekh and Cathy Lewin, 201–11. Sage.
 </div>
 </div>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Burada istatiksel yöntemlerle veri analizini pozitivizme eşitleyen yaklaşımı yanlış bulduğumu belirtmeliyim. Bu konuda bir tartışma için bknz. <span class="citation" data-cites="Jones2010">(Jones <a href="#ref-Jones2010" role="doc-biblioref">2010</a>)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>Burada istatiksel yöntemlerle veri analizini pozitivizme eşitleyen yaklaşımı yanlış bulduğumu belirtmeliyim. Bu konuda bir tartışma için bknz. <span class="citation" data-cites="">(<a href="#ref-Jones2010" role="doc-biblioref">Jones 2010</a>)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p>John Ball bu durumun bir avantaj olduğunu çünkü asla işsiz kalmayacağımızı söyler.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3" role="doc-endnote"><p>G.E.P. Box’un sık sık (hatta fazla sık) alıntılanan sözüyle “bütün modeller yanlıştır ancak bazıları kullanışlıdır.”</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
